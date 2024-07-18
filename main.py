@@ -1,6 +1,6 @@
 import sys
 
-from fwp.exception import XRayException
+from fwp.exception import fwpException
 from fwp.pipeline.training_pipeline import TrainPipeline
 
 
