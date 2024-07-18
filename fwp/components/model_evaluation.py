@@ -12,7 +12,7 @@ from fwp.entity.artifact_entity import (
     ModelTrainerArtifact,
 )
 from fwp.entity.config_entity import ModelEvaluationConfig
-from fwp.exception import XRayException
+from fwp.exception import fwpException
 from fwp.logger import logging
 from fwp.ml.model.arch import Net
 
@@ -60,7 +60,7 @@ class ModelEvaluation:
             return test_dataloader, model, cost
 
         except Exception as e:
-            raise XRayException(e, sys)
+            raise fwpException(e, sys)
 
     def test_net(self) -> float:
         logging.info("Entered the test_net method of Model evaluation class")

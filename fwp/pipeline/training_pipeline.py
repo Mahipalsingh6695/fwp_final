@@ -4,7 +4,7 @@ from fwp.components.data_transformation import DataTransformation
 from fwp.components.model_training import ModelTrainer
 from fwp.components.model_evaluation import ModelEvaluation
 from fwp.components.model_pusher import ModelPusher
-from fwp.exception import XRayException
+from fwp.exception import fwpException
 from fwp.logger import logging
 from fwp.entity.artifact_entity import (
     DataIngestionArtifact,
@@ -96,7 +96,7 @@ class TrainPipeline:
             return model_trainer_artifact
 
         except Exception as e:
-            raise XRayException(e, sys)
+            raise fwpException(e, sys)
     
     def start_model_evaluation(
         self,
@@ -121,7 +121,7 @@ class TrainPipeline:
             return model_evaluation_artifact
 
         except Exception as e:
-            raise XRayException(e, sys)
+            raise fwpException(e, sys)
 
     def start_model_pusher(self) -> ModelPusherArtifact:
         logging.info("Entered the start_model_pusher method of TrainPipeline class")
@@ -136,7 +136,7 @@ class TrainPipeline:
             return model_pusher_artifact
 
         except Exception as e:
-            raise XRayException(e, sys)
+            raise fwpException(e, sys)
 
     def run_pipeline(self) -> None:
         logging.info("Entered the run_pipeline method of TrainPipeline class")
@@ -173,7 +173,7 @@ class TrainPipeline:
             logging.info("Exited the run_pipeline method of TrainPipeline class")
 
         except Exception as e:
-            raise XRayException(e, sys)
+            raise fwpException(e, sys)
 
             
             

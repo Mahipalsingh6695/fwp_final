@@ -4,7 +4,7 @@ from fwp.cloud_storage.s3_operation import S3Operation
 from fwp.constant.training_pipeline import *
 from fwp.entity.artifact_entity import DataIngestionArtifact
 from fwp.entity.config_entity import DataIngestionConfig
-from fwp.exception import XRayException
+from fwp.exception import fwpException
 from fwp.logger import logging
 
 

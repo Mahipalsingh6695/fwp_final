@@ -3,7 +3,7 @@ import sys
 
 from fwp.entity.artifact_entity import ModelPusherArtifact
 from fwp.entity.config_entity import ModelPusherConfig
-from fwp.exception import XRayException
+from fwp.exception import fwpException
 from fwp.logger import logging
 
 

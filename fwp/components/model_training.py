@@ -16,7 +16,7 @@ from fwp.entity.artifact_entity import (
     ModelTrainerArtifact,
 )
 from fwp.entity.config_entity import ModelTrainerConfig
-from fwp.exception import XRayException
+from fwp.exception import fwpException
 from fwp.logger import logging
 from fwp.ml.model.arch import Net
 

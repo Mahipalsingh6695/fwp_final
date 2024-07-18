@@ -13,7 +13,7 @@ from fwp.entity.artifact_entity import (
     DataTransformationArtifact,
 )
 from fwp.entity.config_entity import DataTransformationConfig
-from fwp.exception import XRayException
+from fwp.exception import fwpException
 from fwp.logger import logging
 
 
