@@ -1,6 +1,6 @@
 import os
 import sys
-
+from fwp.cloud_storage.s3_ops import S3Operation
 from fwp.entity.artifact_entity import ModelPusherArtifact
 from fwp.entity.config_entity import ModelPusherConfig
 from fwp.exception import fwpException
@@ -24,7 +24,7 @@ class ModelPusher:
             logging.info("Creating docker image for bento")
 
             os.system(
-                f"bentoml containerize {self.model_pusher_config.bentoml_service_name}:latest -t 136566696263.dkr.ecr.us-east-1.amazonaws.com/{self.model_pusher_config.bentoml_ecr_image}:latest"
+                f"bentoml containerize {self.model_pusher_config.bentoml_service_name}:latest -t 177468260277.dkr.ecr.us-east-1.amazonaws.com/{self.model_pusher_config.bentoml_ecr_image}:latest"
             )
 
             logging.info("Created docker image for bento")
@@ -40,7 +40,7 @@ class ModelPusher:
             logging.info("Pushing bento image to ECR")
 
             os.system(
-                f"docker push 136566696263.dkr.ecr.us-east-1.amazonaws.com/{self.model_pusher_config.bentoml_ecr_image}:latest"
+                f"docker push 177468260277.dkr.ecr.us-east-1.amazonaws.com/{self.model_pusher_config.bentoml_ecr_image}:latest"
             )
 
             logging.info("Pushed bento image to ECR")
@@ -77,3 +77,37 @@ class ModelPusher:
 
         except Exception as e:
             raise fwpException(e, sys)
+        
+class ModelPusher:
+    def __init__(self,model_pusher_config:ModelPusherConfig):
+        
+        self.model_pusher_config = model_pusher_config
+        self.s3 = S3Operation()
+        
+        
+    def initiate_model_pusher(self):
+        
+        """
+        Method Name :   initiate_model_pusher
+        Description :   This method initiates model pusher.
+
+        Output      :   Model pusher artifact
+        """
+        logging.info("Entered initiate_model_pusher method of ModelPusher class")
+        
+        try:
+            
+            self.s3.upload_file(
+                "model/model.pt",
+                "model.pt",
+                "fwproject",
+                remove = False,
+                
+            )
+            
+            logging.info("uploaded best model to s3")
+            logging.info("exit from there")
+            
+        except Exception as e:
+            raise e
+        

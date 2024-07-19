@@ -1,10 +1,10 @@
-service: "Xray.ml.model.model_service:svc"
+service: "fwp.ml.model.model_service:svc"
 labels:
-    owner: ineuron-team
+    owner: fwp-team
     stage: dev
 include:
-    - "Xray/ml/model/model_service.py"
-    - "Xray/constant/training_pipeline/__init__.py"
+    - "fwp/ml/model/model_service.py"
+    - "fwp/constant/training_pipeline/__init__.py"
 python:
     packages:
         - torch
