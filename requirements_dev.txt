@@ -16,7 +16,7 @@ tox
 black
 flake8
 mypy
-doto3
+#doto3
 streamlit
 #-e .
 joblib
