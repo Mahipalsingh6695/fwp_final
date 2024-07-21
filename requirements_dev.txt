@@ -19,3 +19,8 @@ mypy
 doto3
 streamlit
 #-e .
+joblib
+tqdm
+pip-chill
+wincertstore
+mypy-boto3-s3
