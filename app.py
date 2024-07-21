@@ -52,4 +52,4 @@ if __name__ == "__main__":
     st.title("Original vs Fake Classifier")
     uploaded_file = st.file_uploader("Upload an image")
     save_image(uploaded_file)
-
+    

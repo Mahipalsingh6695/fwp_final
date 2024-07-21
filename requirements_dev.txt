@@ -24,3 +24,6 @@ tqdm
 pip-chill
 wincertstore
 mypy-boto3-s3
+torch
+torchvision
+pillow
