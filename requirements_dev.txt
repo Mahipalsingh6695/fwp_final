@@ -16,4 +16,6 @@ tox
 black
 flake8
 mypy
+doto3
+streamlit
 #-e .
