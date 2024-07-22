@@ -1,5 +1,5 @@
 FROM python:3.11
-WORKDIR /app
+WORKDIR /service
 COPY requirements_dev.txt .
 COPY . ./
 RUN pip install -r requirements_dev.txt
